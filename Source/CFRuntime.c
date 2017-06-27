@@ -518,6 +518,14 @@ CFInitialize (void)
   CFRunLoopInitialize ();
 }
 
+#if __LP64__
+int __CFConstantStringClassReference[24] = { 0 };
+#else
+int __CFConstantStringClassReference[12] = { 0 };
+#endif
+
+void *__CFConstantStringClassReferencePtr = NULL;
+
 #if defined(_MSC_VER)
 #include <windows.h>
 
